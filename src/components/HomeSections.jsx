@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Plane, ShieldCheck, Headphones } from 'lucide-react';
 import { AIRPORTS } from '../data/flights';
 import { PARTNERS } from '../data/partners';
 import { DEALS } from '../data/deals';
@@ -49,6 +50,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
               {AIRPORTS.map((a) => (
                 <div key={a.code} className="card-hover" style={{ minWidth: 160, height: 130, borderRadius: 14, overflow: 'hidden', position: 'relative', cursor: 'pointer', boxShadow: '0 8px 24px rgba(2,6,23,0.12)' }} onClick={() => { setTo(a.code); scrollToDatVe(); }}>
                   <img src={`https://picsum.photos/seed/${a.code}/360/260`} alt={a.city} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(2,6,23,0.5) 100%)' }} />
                   <div style={{ position: 'absolute', left: 12, bottom: 12, color: '#fff', fontWeight: 800, textShadow: '0 6px 18px rgba(0,0,0,0.45)', fontSize: 15 }}>{a.city}</div>
                 </div>
               ))}
@@ -69,7 +71,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <div className="snap-container" style={{ overflowX: 'auto', display: 'flex', gap: 12, padding: '8px 0' }}>
             {PARTNERS.map((p) => (
-              <div key={p} style={{ minWidth: 120, padding: '10px 14px', borderRadius: 999, background: 'var(--input-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>{p}</div>
+              <div key={p} style={{ minWidth: 140, padding: '12px 18px', borderRadius: 12, background: 'var(--panel-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, border: '1px solid var(--border)', boxShadow: '0 8px 20px rgba(2,6,23,0.04)' }}>{p}</div>
             ))}
           </div>
         </div>
@@ -80,17 +82,26 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <h3 style={{ marginBottom: 12 }}>Vì sao chọn SkyHop</h3>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between' }}>
-            <div style={{ flex: 1, padding: 12, borderRadius: 8, background: 'var(--panel-bg)', border: '1px solid var(--border)' }}>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Đặt vé nhanh chóng</div>
-              <div style={{ color: 'var(--text-muted)' }}>Giao diện đơn giản, tìm và đặt trong vài bước.</div>
+            <div style={{ flex: 1, padding: 18, borderRadius: 12, background: 'var(--panel-bg)', border: '1px solid var(--border)', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(47,111,237,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)' }}><Plane size={22} /></div>
+              <div>
+                <div style={{ fontWeight: 700, marginBottom: 6 }}>Đặt vé nhanh chóng</div>
+                <div style={{ color: 'var(--text-muted)' }}>Giao diện đơn giản, tìm và đặt trong vài bước.</div>
+              </div>
             </div>
-            <div style={{ flex: 1, padding: 12, borderRadius: 8, background: 'var(--panel-bg)', border: '1px solid var(--border)' }}>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Giá tốt nhất</div>
-              <div style={{ color: 'var(--text-muted)' }}>So sánh nhanh và chọn giá phù hợp với bạn.</div>
+            <div style={{ flex: 1, padding: 18, borderRadius: 12, background: 'var(--panel-bg)', border: '1px solid var(--border)', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(47,111,237,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)' }}><ShieldCheck size={22} /></div>
+              <div>
+                <div style={{ fontWeight: 700, marginBottom: 6 }}>Giá tốt nhất</div>
+                <div style={{ color: 'var(--text-muted)' }}>So sánh nhanh và chọn giá phù hợp với bạn.</div>
+              </div>
             </div>
-            <div style={{ flex: 1, padding: 12, borderRadius: 8, background: 'var(--panel-bg)', border: '1px solid var(--border)' }}>
-              <div style={{ fontWeight: 700, marginBottom: 6 }}>Hỗ trợ 24/7</div>
-              <div style={{ color: 'var(--text-muted)' }}>Đội ngũ hỗ trợ luôn sẵn sàng giúp bạn.</div>
+            <div style={{ flex: 1, padding: 18, borderRadius: 12, background: 'var(--panel-bg)', border: '1px solid var(--border)', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(47,111,237,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)' }}><Headphones size={22} /></div>
+              <div>
+                <div style={{ fontWeight: 700, marginBottom: 6 }}>Hỗ trợ 24/7</div>
+                <div style={{ color: 'var(--text-muted)' }}>Đội ngũ hỗ trợ luôn sẵn sàng giúp bạn.</div>
+              </div>
             </div>
           </div>
         </div>
