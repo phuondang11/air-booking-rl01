@@ -71,7 +71,7 @@ export const SearchPanel = ({
           </h1>
         </div>
 
-        <div style={{ width: '44%', minWidth: 360 }}>
+        <div className="search-right" style={{ width: '44%', minWidth: 360 }}>
           <div style={{ ...styles.panel, transform: 'translateY(-48px)', position: 'relative', zIndex: 40 }} className="section-animate" data-idx="0">
         <div style={styles.fieldRow} className="sb-field-row">
           <div style={styles.field}>
