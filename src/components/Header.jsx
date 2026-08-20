@@ -51,9 +51,8 @@ export const Header = ({ screen, backToResults, reset, setScreen, theme, toggleT
               SkyHop
             </span>
           </div>
-
-          <nav style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <button className="sb-btn" onClick={() => scrollTo('home-top')} style={{ ...styles.ghostBtn, color: 'var(--accent)', fontWeight: 700 }}>Trang chủ</button>
+          <nav style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+            <button className="sb-btn" onClick={() => scrollTo('home-top')} style={{ ...styles.ghostBtn, color: 'var(--accent)', fontWeight: 700, background: 'rgba(47,111,237,0.08)', borderRadius: 999 }}>Trang chủ</button>
             <button className="sb-btn" onClick={() => scrollTo('gioi-thieu')} style={styles.ghostBtn}>Giới thiệu</button>
             <button className="sb-btn" onClick={() => scrollTo('dat-ve')} style={styles.ghostBtn}>Đặt vé</button>
           </nav>
