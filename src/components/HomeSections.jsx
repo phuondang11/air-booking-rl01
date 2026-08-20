@@ -135,13 +135,13 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <h3 style={{ marginBottom: 6, fontSize: 20, fontWeight: 700 }}>Nơi nên đi</h3>
           <div style={{ height: 6, width: 72, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))', borderRadius: 6, marginBottom: 12 }} />
-          <div className="snap-container" style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
+          <div className="snap-container" style={{ display: 'flex', gap: 18, flexWrap: 'nowrap', overflowX: 'auto' }}>
             {AIRPORTS.map((a) => (
-              <div key={a.code} style={{ width: 120, textAlign: 'center' }}>
-                <div style={{ width: 100, height: 100, borderRadius: 999, overflow: 'hidden', margin: '0 auto' }}>
+              <div key={a.code} style={{ width: 92, textAlign: 'center' }}>
+                <div style={{ width: 88, height: 88, borderRadius: 999, overflow: 'hidden', margin: '0 auto' }}>
                   <img src={`https://picsum.photos/seed/dest-${a.code}/200/200`} alt={a.city} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <div style={{ marginTop: 8, fontWeight: 700 }}>{a.city}</div>
+                <div style={{ marginTop: 8, fontWeight: 700, fontSize: 13 }}>{a.city}</div>
               </div>
             ))}
           </div>
