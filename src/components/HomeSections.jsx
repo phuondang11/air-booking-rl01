@@ -47,7 +47,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
             <button aria-label="Prev" onClick={() => scrollCity(-1)} className="slider-arrow" style={{ position: 'absolute', left: -14, top: '40%', zIndex: 30, border: 'none', background: 'var(--panel-bg)', boxShadow: '0 8px 20px rgba(2,6,23,0.12)', cursor: 'pointer' }}>‹</button>
             <div ref={sliderRef} onScroll={handleCityScroll} className="snap-container" style={{ display: 'flex', gap: 12, paddingBottom: 6 }} tabIndex={0} onKeyDown={(e) => { if (e.key === 'ArrowLeft') { scrollCity(-1); } if (e.key === 'ArrowRight') { scrollCity(1); } }} aria-label="City slider">
               {AIRPORTS.map((a) => (
-                <div key={a.code} className="card-hover" style={{ minWidth: 180, height: 130, borderRadius: 14, overflow: 'hidden', position: 'relative', cursor: 'pointer', boxShadow: '0 8px 24px rgba(2,6,23,0.12)' }} onClick={() => { setTo(a.code); scrollToDatVe(); }}>
+                <div key={a.code} className="card-hover" style={{ minWidth: 160, height: 130, borderRadius: 14, overflow: 'hidden', position: 'relative', cursor: 'pointer', boxShadow: '0 8px 24px rgba(2,6,23,0.12)' }} onClick={() => { setTo(a.code); scrollToDatVe(); }}>
                   <img src={`https://picsum.photos/seed/${a.code}/360/260`} alt={a.city} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', left: 12, bottom: 12, color: '#fff', fontWeight: 800, textShadow: '0 6px 18px rgba(0,0,0,0.45)', fontSize: 15 }}>{a.city}</div>
                 </div>
@@ -69,7 +69,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <div className="snap-container" style={{ overflowX: 'auto', display: 'flex', gap: 12, padding: '8px 0' }}>
             {PARTNERS.map((p) => (
-              <div key={p} style={{ minWidth: 140, padding: '10px 16px', borderRadius: 999, background: 'var(--input-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>{p}</div>
+              <div key={p} style={{ minWidth: 120, padding: '10px 14px', borderRadius: 999, background: 'var(--input-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>{p}</div>
             ))}
           </div>
         </div>
@@ -109,7 +109,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
                   <div style={{ background: 'var(--accent)', color: 'var(--text-on-accent)', padding: '4px 8px', borderRadius: 8 }}>-{d.discount}%</div>
                 </div>
                 <div style={{ marginTop: 8, color: 'var(--text-muted)' }}>{d.date}</div>
-                <div style={{ marginTop: 12, fontWeight: 800, fontSize: 18.5 }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(d.price)}</div>
+                  <div style={{ marginTop: 12, fontWeight: 800, fontSize: 20 }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(d.price)}</div>
                 <div style={{ marginTop: 12 }}>
                   <button className="sb-btn" style={styles.selectBtn} onClick={() => { setTo(d.to); scrollToDatVe(); }}>Đặt ngay</button>
                 </div>
