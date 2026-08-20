@@ -41,7 +41,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
     <div>
       {/* City slider */}
       <section style={{ padding: '24px 0' }}>
-        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+          <div style={{ maxWidth: 1180, margin: '0 auto' }} className="sb-container">
           <h3 style={{ marginBottom: 6, fontSize: 20, fontWeight: 700 }}>Khám phá các thành phố</h3>
           <div style={{ height: 6, width: 72, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))', borderRadius: 6, marginBottom: 12 }} />
           <div style={{ position: 'relative' }}>
@@ -68,7 +68,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
 
       {/* Partners strip */}
       <section style={{ padding: '18px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+          <div style={{ maxWidth: 1180, margin: '0 auto' }} className="sb-container">
           <div className="snap-container" style={{ overflowX: 'auto', display: 'flex', gap: 12, padding: '8px 0' }}>
             {PARTNERS.map((p) => (
               <div key={p} style={{ minWidth: 140, padding: '12px 18px', borderRadius: 12, background: 'var(--panel-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, border: '1px solid var(--border)', boxShadow: '0 8px 20px rgba(2,6,23,0.04)' }}>{p}</div>
@@ -79,7 +79,7 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
 
       {/* About */}
       <section id="gioi-thieu" style={{ padding: '28px 0' }}>
-        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto' }} className="sb-container">
           <h3 style={{ marginBottom: 12 }}>Vì sao chọn SkyHop</h3>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'space-between' }}>
             <div style={{ flex: 1, padding: 18, borderRadius: 12, background: 'var(--panel-bg)', border: '1px solid var(--border)', display: 'flex', gap: 12, alignItems: 'flex-start' }}>
@@ -109,18 +109,18 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
 
       {/* Deals */}
       <section style={{ padding: '24px 0' }}>
-        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto' }} className="sb-container">
           <h3 style={{ marginBottom: 6, fontSize: 20, fontWeight: 700 }}>Chuyến bay ưu đãi</h3>
           <div style={{ height: 6, width: 72, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))', borderRadius: 6, marginBottom: 12 }} />
-          <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+          <div className="deals-grid">
             {DEALS.map((d) => (
-              <div key={d.id} className="card-hover" style={{ padding: 12, borderRadius: 12, background: 'var(--panel-bg)', border: '1px solid var(--border)' }}>
+              <div key={d.id} className="deal-card card-hover">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ fontWeight: 700 }}>{d.from} → {d.to}</div>
-                  <div style={{ background: 'var(--accent)', color: 'var(--text-on-accent)', padding: '4px 8px', borderRadius: 8 }}>-{d.discount}%</div>
+                  <div className="deal-badge">-{d.discount}%</div>
                 </div>
                 <div style={{ marginTop: 8, color: 'var(--text-muted)' }}>{d.date}</div>
-                  <div style={{ marginTop: 12, fontWeight: 800, fontSize: 20 }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(d.price)}</div>
+                <div style={{ marginTop: 12, fontWeight: 800, fontSize: 20 }}>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(d.price)}</div>
                 <div style={{ marginTop: 12 }}>
                   <button className="sb-btn" style={styles.selectBtn} onClick={() => { setTo(d.to); scrollToDatVe(); }}>Đặt ngay</button>
                 </div>

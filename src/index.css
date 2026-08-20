@@ -101,6 +101,10 @@ body {
   scroll-snap-align: start;
 }
 
+/* Hide native scrollbars but keep scroll functionality */
+.snap-container::-webkit-scrollbar { height: 8px; display: none; }
+.snap-container { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Section entrance stagger */
 .section-animate { opacity: 0; transform: translateY(10px); animation: sb-fade-in .6s ease forwards; }
 .section-animate[data-idx="0"] { animation-delay: 0s; }
@@ -175,6 +179,23 @@ body {
     width: auto !important;
     margin-top: 6px;
   }
+}
+
+/* Section container and spacing helpers */
+.sb-container { max-width: 1180px; width: calc(100% - 40px); margin: 0 auto; }
+.sb-section { padding: 28px 0; }
+
+/* Deals grid adjustments for visual parity */
+.deals-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.deal-card { padding: 14px; border-radius: 12px; background: var(--panel-bg); border: 1px solid var(--border); box-shadow: 0 10px 28px rgba(8,18,40,0.04); }
+.deal-badge { background: var(--accent); color: var(--text-on-accent); padding: 6px 10px; border-radius: 10px; font-weight: 700; }
+
+/* partner tile */
+.partner-tile { min-width: 140px; padding: 12px 18px; border-radius: 12px; background: var(--panel-bg); display: flex; align-items: center; justify-content: center; font-weight: 700; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(2,6,23,0.04); }
+
+/* tighten section spacing on small screens */
+@media (max-width: 980px) {
+  .sb-section { padding: 20px 0; }
 }
 
 /* Search panel responsive helper */

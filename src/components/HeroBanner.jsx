@@ -41,8 +41,8 @@ export const HeroBanner = ({ from, cityOf }) => {
 
   // For simpler inline styling, compute background style
   const backgroundStyle = activeBanner
-    ? { backgroundImage: `linear-gradient(rgba(2,6,23,0.36), rgba(2,6,23,0.12)), url('${activeBanner.url}')`, backgroundSize: 'cover', backgroundPosition: 'center' }
-    : { backgroundImage: `linear-gradient(180deg, rgba(4,6,23,0.28), rgba(4,6,23,0.12)), url('https://picsum.photos/seed/skyhop-banner/1600/900')`, backgroundSize: 'cover', backgroundPosition: 'center' };
+    ? { backgroundImage: `linear-gradient(180deg, rgba(2,6,23,0.5), rgba(2,6,23,0.18)), url('${activeBanner.url}')`, backgroundSize: 'cover', backgroundPosition: 'center' }
+    : { backgroundImage: `linear-gradient(180deg, rgba(4,6,23,0.5), rgba(4,6,23,0.18)), url('https://picsum.photos/seed/skyhop-banner/1600/900')`, backgroundSize: 'cover', backgroundPosition: 'center' };
 
   const icon = bucket === 'evening' ? <Moon size={64} /> : bucket === 'morning' ? <Sun size={64} /> : <CloudSun size={64} />;
   const greeting = bucket === 'morning' ? 'Chào buổi sáng' : bucket === 'afternoon' ? 'Chào buổi chiều' : 'Chào buổi tối';
@@ -51,7 +51,7 @@ export const HeroBanner = ({ from, cityOf }) => {
 
   return (
     <section style={{ height: 'var(--hero-height)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px', ...backgroundStyle }}>
-      <div style={{ maxWidth: 980, width: '100%', color: '#fff' }}>
+      <div style={{ maxWidth: 1180, width: '100%', color: '#fff' }} className="sb-container">
         <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <div style={{ maxWidth: 520 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 12 }}>
