@@ -60,9 +60,9 @@ export const SearchPanel = ({
   swap, search
 }) => {
   return (
-    <div id="dat-ve" style={{ ...styles.hero, paddingTop: 0, marginTop: -56 }} className="sb-hero">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 24, maxWidth: 1180, margin: '0 auto', flexWrap: 'wrap' }} className="sb-container">
-        <div style={{ flex: 1, minWidth: 240 }}>
+    <div id="dat-ve" style={{ ...styles.hero, paddingTop: 0, marginTop: -76 }} className="sb-hero">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 24, maxWidth: 1280, margin: '0 auto', flexWrap: 'wrap' }} className="sb-container">
+        <div style={{ flex: 1, minWidth: 280 }}>
           <div style={{ fontSize: 12, letterSpacing: 3, color: "var(--accent)", fontFamily: "'JetBrains Mono', monospace", marginBottom: 12 }}>
             CHUYẾN BAY SÁNG NAY
           </div>
@@ -71,8 +71,8 @@ export const SearchPanel = ({
           </h1>
         </div>
 
-          <div className="search-right" style={{ width: '42%', minWidth: 320 }}>
-          <div style={{ ...styles.panel, transform: 'translateY(-48px)', position: 'relative', zIndex: 40, padding: 20 }} className="section-animate" data-idx="0">
+          <div className="search-right" style={{ width: 420, minWidth: 360 }}>
+          <div style={{ ...styles.panel, transform: 'translateY(-64px)', position: 'relative', zIndex: 40, padding: 22, borderRadius: 18, width: 420 }} className="section-animate" data-idx="0">
             <div style={styles.fieldRow} className="sb-field-row">
               <div style={styles.field}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>

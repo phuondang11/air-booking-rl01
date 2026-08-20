@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useBooking } from "./hooks/useBooking";
 import { Header } from "./components/Header";
+import { HeroBanner } from "./components/HeroBanner.jsx";
 import { SearchPanel } from "./components/SearchPanel";
 import { FlightBoard } from "./components/FlightBoard";
 import { SeatMap } from "./components/SeatMap";
 import { Ticket } from "./components/Ticket";
+import { BookingHistory } from "./components/BookingHistory";
 import { styles } from "./components/shared/styles";
+import { ToastProvider } from "./hooks/useToasts.jsx";
+import { ToastContainer } from "./components/ToastContainer";
+import { useTheme } from "./hooks/useTheme.jsx";
+import HomeSections from './components/HomeSections';
+import Footer from './components/Footer';
 
 export default function App() {
   const {
@@ -17,7 +24,7 @@ export default function App() {
     flight,
     seats,
     bookingCode,
-    toast,
+    bookings,
     flights,
     takenSeats,
     swap,
@@ -27,29 +34,26 @@ export default function App() {
     confirmBooking,
     backToResults,
     reset,
-    clearToast,
+    cancelBooking,
+    setScreen,
     cityOf,
   } = useBooking();
 
-  useEffect(() => {
-    if (!toast) return undefined;
-    const timeout = setTimeout(() => clearToast(), 2800);
-    return () => clearTimeout(timeout);
-  }, [toast, clearToast]);
+  const { theme, toggleTheme } = useTheme();
 
+  
   return (
-    <div style={styles.app}>
-      {toast && (
-        <div style={styles.toast} role="status" aria-live="polite">
-          <span style={styles.toastIcon}>✓</span>
-          <div>
-            <div style={styles.toastTitle}>Đặt vé thành công</div>
-            <div style={styles.toastText}>{toast}</div>
-          </div>
+    <ToastProvider>
+      <div style={styles.app}>
+      {screen === 'search' && (<HeroBanner from={from} cityOf={cityOf} />)}
+      {screen === 'search' && (
+        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+          <div style={{ height: 0 }} />
         </div>
       )}
+   
 
-      <Header screen={screen} backToResults={backToResults} reset={reset} />
+      <Header screen={screen} backToResults={backToResults} reset={reset} setScreen={setScreen} theme={theme} toggleTheme={toggleTheme} from={from} cityOf={cityOf} />
 
       {screen === "search" && (
         <SearchPanel
@@ -102,6 +106,18 @@ export default function App() {
           cityOf={cityOf}
         />
       )}
-    </div>
+
+      {screen === "history" && (
+        <BookingHistory bookings={bookings} cancelBooking={cancelBooking} cityOf={cityOf} />
+      )}
+      {screen === 'search' && (
+        <>
+          <HomeSections setTo={setTo} scrollToDatVe={() => document.getElementById('dat-ve')?.scrollIntoView({ behavior: 'smooth' })} />
+          <Footer />
+        </>
+      )}
+      <ToastContainer />
+      </div>
+    </ToastProvider>
   );
 }

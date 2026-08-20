@@ -10,14 +10,15 @@ body {
 
 /* Theme tokens */
 :root[data-theme="light"] {
-  --hero-height: 70vh;
+  /* Fixed hero height for stricter reference matching (desktop) */
+  --hero-height: 620px;
   --app-bg: radial-gradient(circle at top, rgba(47,111,237,0.16), transparent 34%), linear-gradient(180deg, #f5f8ff 0%, #eef3ff 42%, #f8fafc 100%);
-  --header-bg: rgba(255,255,255,0.7);
+  --header-bg: rgba(255,255,255,0.75);
   --panel-bg: #ffffff;
-  --input-bg: #F7F9FD;
-  --text-primary: #10213A;
-  --text-muted: #5E6B82;
-  --border: rgba(16,33,58,0.08);
+  --input-bg: #F4F7FF;
+  --text-primary: #0F2B4A;
+  --text-muted: #54607A;
+  --border: rgba(16,33,58,0.06);
   --accent: #2F6FED;
   --accent-2: #3B82F6;
   --text-on-accent: #0A0F1C;
@@ -34,14 +35,15 @@ body {
 }
 
 :root[data-theme="dark"] {
-  --hero-height: 70vh;
+  /* Fixed hero height for stricter reference matching (desktop) */
+  --hero-height: 620px;
   --app-bg: radial-gradient(circle at top, rgba(4,6,23,0.6), transparent 34%), linear-gradient(180deg, #071023 0%, #061322 42%, #04121a 100%);
-  --header-bg: rgba(6,12,24,0.6);
+  --header-bg: rgba(6,12,24,0.7);
   --panel-bg: #081426;
-  --input-bg: #0b1b2a;
-  --text-primary: #E6F0FF;
-  --text-muted: #8D9BB2;
-  --border: rgba(255,255,255,0.04);
+  --input-bg: #071826;
+  --text-primary: #E8F3FF;
+  --text-muted: #9AB0CF;
+  --border: rgba(255,255,255,0.045);
   --accent: #2F6FED;
   --accent-2: #3B82F6;
   --text-on-accent: #071218;
@@ -182,8 +184,8 @@ body {
 }
 
 /* Section container and spacing helpers */
-.sb-container { max-width: 1180px; width: calc(100% - 40px); margin: 0 auto; }
-.sb-section { padding: 28px 0; }
+.sb-container { max-width: 1280px; width: calc(100% - 40px); margin: 0 auto; }
+.sb-section { padding: 32px 0; }
 
 /* Deals grid adjustments for visual parity */
 .deals-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
@@ -199,7 +201,7 @@ body {
 }
 
 /* Search panel responsive helper */
-.search-right { width: 44%; min-width: 360px; }
+.search-right { width: 420px; min-width: 360px; }
 @media (max-width: 980px) {
   .search-right { width: 100% !important; min-width: 0 !important; transform: translateY(0) !important; }
 }

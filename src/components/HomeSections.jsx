@@ -40,15 +40,15 @@ export const HomeSections = ({ setTo, scrollToDatVe }) => {
   return (
     <div>
       {/* City slider */}
-      <section style={{ padding: '24px 0' }}>
-          <div style={{ maxWidth: 1180, margin: '0 auto' }} className="sb-container">
+        <section style={{ padding: '28px 0' }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto' }} className="sb-container">
           <h3 style={{ marginBottom: 6, fontSize: 20, fontWeight: 700 }}>Khám phá các thành phố</h3>
           <div style={{ height: 6, width: 72, background: 'linear-gradient(90deg,var(--accent),var(--accent-2))', borderRadius: 6, marginBottom: 12 }} />
           <div style={{ position: 'relative' }}>
             <button aria-label="Prev" onClick={() => scrollCity(-1)} className="slider-arrow" style={{ position: 'absolute', left: -14, top: '40%', zIndex: 30, border: 'none', background: 'var(--panel-bg)', boxShadow: '0 8px 20px rgba(2,6,23,0.12)', cursor: 'pointer' }}>‹</button>
-            <div ref={sliderRef} onScroll={handleCityScroll} className="snap-container" style={{ display: 'flex', gap: 12, paddingBottom: 6 }} tabIndex={0} onKeyDown={(e) => { if (e.key === 'ArrowLeft') { scrollCity(-1); } if (e.key === 'ArrowRight') { scrollCity(1); } }} aria-label="City slider">
+            <div ref={sliderRef} onScroll={handleCityScroll} className="snap-container" style={{ display: 'flex', gap: 16, paddingBottom: 8 }} tabIndex={0} onKeyDown={(e) => { if (e.key === 'ArrowLeft') { scrollCity(-1); } if (e.key === 'ArrowRight') { scrollCity(1); } }} aria-label="City slider">
               {AIRPORTS.map((a) => (
-                <div key={a.code} className="card-hover" style={{ minWidth: 160, height: 130, borderRadius: 14, overflow: 'hidden', position: 'relative', cursor: 'pointer', boxShadow: '0 8px 24px rgba(2,6,23,0.12)' }} onClick={() => { setTo(a.code); scrollToDatVe(); }}>
+                <div key={a.code} className="card-hover" style={{ minWidth: 180, height: 150, borderRadius: 16, overflow: 'hidden', position: 'relative', cursor: 'pointer', boxShadow: '0 10px 28px rgba(2,6,23,0.12)' }} onClick={() => { setTo(a.code); scrollToDatVe(); }}>
                   <img src={`https://picsum.photos/seed/${a.code}/360/260`} alt={a.city} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(2,6,23,0.5) 100%)' }} />
                   <div style={{ position: 'absolute', left: 12, bottom: 12, color: '#fff', fontWeight: 800, textShadow: '0 6px 18px rgba(0,0,0,0.45)', fontSize: 15 }}>{a.city}</div>

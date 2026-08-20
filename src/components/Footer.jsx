@@ -4,8 +4,8 @@ import { styles } from './shared/styles';
 
 export const Footer = () => {
   return (
-    <footer style={{ marginTop: 56, padding: '40px 20px', background: 'var(--panel-bg)', borderTop: '1px solid var(--border)' }}>
-      <div style={{ maxWidth: 1180, margin: '0 auto', display: 'flex', gap: 24, alignItems: 'flex-start', justifyContent: 'space-between', color: 'var(--text-primary)' }}>
+    <footer style={{ marginTop: 56, padding: '48px 20px', background: 'var(--panel-bg)', borderTop: '1px solid var(--border)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 32, alignItems: 'flex-start', justifyContent: 'space-between', color: 'var(--text-primary)' }}>
         <div style={{ maxWidth: 320 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
             <div style={{ width: 34, height: 34, borderRadius: 10, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

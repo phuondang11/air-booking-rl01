@@ -1,10 +1,10 @@
 export const AIRPORTS = [
-  { code: "SGN", city: "TP. Hồ Chí Minh" },
-  { code: "HAN", city: "Hà Nội" },
-  { code: "DAD", city: "Đà Nẵng" },
-  { code: "CXR", city: "Nha Trang" },
-  { code: "PQC", city: "Phú Quốc" },
-  { code: "HUI", city: "Huế" },
+  { code: "SGN", city: "TP. Hồ Chí Minh", lat: 10.8188, lon: 106.652 },
+  { code: "HAN", city: "Hà Nội", lat: 21.0245, lon: 105.8412 },
+  { code: "DAD", city: "Đà Nẵng", lat: 16.0439, lon: 108.199 },
+  { code: "CXR", city: "Nha Trang", lat: 12.25, lon: 109.1947 },
+  { code: "PQC", city: "Phú Quốc", lat: 10.229, lon: 103.9674 },
+  { code: "HUI", city: "Huế", lat: 16.41, lon: 107.724 },
 ];
 
 export const AIRLINES = [

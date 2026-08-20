@@ -41,7 +41,7 @@ export const Header = ({ screen, backToResults, reset, setScreen, theme, toggleT
   // Home screen header (expanded)
   if (screen === 'search') {
     return (
-      <div style={{ ...styles.header, alignItems: 'center', gap: 12 }} className="sb-header" id="home-top">
+      <div style={{ ...styles.header, alignItems: 'center', gap: 12, padding: '18px 22px', maxWidth: 1280, margin: '22px auto' }} className="sb-header" id="home-top">
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
           <div style={styles.brand}>
             <div style={styles.brandIcon}>

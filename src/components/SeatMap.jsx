@@ -6,21 +6,21 @@ export const SeatMap = ({ flight, pax, seats, takenSeats, toggleSeat, confirmBoo
   if (!flight) return null;
 
   return (
-    <div style={styles.section}>
+    <div style={styles.section} className="sb-section">
       <div style={styles.boardHeader}>
         <div>
-          <div style={{ fontSize: 12, color: "#8891A6", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: 12, color: "var(--text-muted)", fontFamily: "'JetBrains Mono', monospace" }}>
             {flight.code} · {flight.dep}
           </div>
           <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 20, fontWeight: 700 }}>
             Chọn {pax} chỗ ngồi
           </div>
         </div>
-        <div style={{ fontSize: 12, color: "#8891A6" }}>{seats.length}/{pax} đã chọn</div>
+        <div style={{ fontSize: 12, color: "var(--text-muted)" }}>{seats.length}/{pax} đã chọn</div>
       </div>
 
-      <div style={styles.seatPanel}>
-        <div style={styles.planeNose}>MŨI MÁY BAY</div>
+      <div style={{ ...styles.seatPanel, maxWidth: 760, margin: '0 auto' }} className="sb-seat-panel">
+        <div style={{ ...styles.planeNose, fontWeight: 700 }}>MŨI MÁY BAY</div>
         {Array.from({ length: SEAT_ROWS }).map((_, ri) => {
           const r = ri + 1;
           return (
@@ -38,9 +38,9 @@ export const SeatMap = ({ flight, pax, seats, takenSeats, toggleSeat, confirmBoo
                       className="sb-seat"
                       style={{
                         ...styles.seat,
-                        background: taken ? "#232B3D" : selected ? "#FFB020" : "#121A2E",
-                        borderColor: taken ? "#232B3D" : selected ? "#FFB020" : "rgba(255,255,255,0.12)",
-                        color: taken ? "#3E4964" : selected ? "#0A0F1C" : "#E7ECF5",
+                        background: taken ? "var(--seat-taken)" : selected ? "var(--accent)" : "var(--seat-available)",
+                        borderColor: taken ? "var(--seat-taken)" : selected ? "var(--accent)" : "var(--panel-overlay)",
+                        color: taken ? "var(--text-muted)" : selected ? "var(--text-on-accent)" : "var(--text-primary)",
                         cursor: taken ? "not-allowed" : "pointer",
                       }}
                     >
@@ -55,21 +55,21 @@ export const SeatMap = ({ flight, pax, seats, takenSeats, toggleSeat, confirmBoo
         })}
         <div style={styles.legend}>
           <span style={styles.legendItem}>
-            <i style={{ ...styles.legendDot, background: "#121A2E", borderColor: "rgba(255,255,255,0.12)" }} /> Còn trống
+            <i style={{ ...styles.legendDot, background: "var(--seat-available)", borderColor: "var(--panel-overlay)" }} /> Còn trống
           </span>
           <span style={styles.legendItem}>
-            <i style={{ ...styles.legendDot, background: "#FFB020", borderColor: "#FFB020" }} /> Đang chọn
+            <i style={{ ...styles.legendDot, background: "var(--accent)", borderColor: "var(--accent)" }} /> Đang chọn
           </span>
           <span style={styles.legendItem}>
-            <i style={{ ...styles.legendDot, background: "#232B3D", borderColor: "#232B3D" }} /> Đã có người
+            <i style={{ ...styles.legendDot, background: "var(--seat-taken)", borderColor: "var(--seat-taken)" }} /> Đã có người
           </span>
         </div>
       </div>
 
-      <div style={styles.summaryBar}>
+      <div style={styles.summaryBar} className="sb-summary-bar">
         <div>
-          <div style={{ fontSize: 12, color: "#8891A6" }}>Tạm tính</div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: 18, color: "#FFB020" }}>
+          <div style={{ fontSize: 12, color: "var(--text-muted)" }}>Tạm tính</div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: 18, color: "var(--accent)" }}>
             {formatVND(flight.price * pax)}
           </div>
         </div>
