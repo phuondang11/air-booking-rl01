@@ -8,11 +8,60 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Theme tokens */
+:root[data-theme="light"] {
+  --hero-height: 70vh;
+  --app-bg: radial-gradient(circle at top, rgba(47,111,237,0.16), transparent 34%), linear-gradient(180deg, #f5f8ff 0%, #eef3ff 42%, #f8fafc 100%);
+  --header-bg: rgba(255,255,255,0.7);
+  --panel-bg: #ffffff;
+  --input-bg: #F7F9FD;
+  --text-primary: #10213A;
+  --text-muted: #5E6B82;
+  --border: rgba(16,33,58,0.08);
+  --accent: #2F6FED;
+  --accent-2: #3B82F6;
+  --text-on-accent: #0A0F1C;
+  --success: #28C76F;
+  --on-success: #ffffff;
+  --danger: #D64545;
+  --toast-text: #F5F9FF;
+  --intro-morning: linear-gradient(135deg,#A7ECFB 0%, #FFE29A 100%);
+  --intro-afternoon: linear-gradient(135deg,#FFD194 0%, #FFB199 100%);
+  --intro-evening: linear-gradient(135deg,#0f1724 0%, #2b1642 100%);
+  --seat-available: #121A2E;
+  --seat-taken: #232B3D;
+  --panel-overlay: rgba(255,255,255,0.12);
+}
+
+:root[data-theme="dark"] {
+  --hero-height: 70vh;
+  --app-bg: radial-gradient(circle at top, rgba(4,6,23,0.6), transparent 34%), linear-gradient(180deg, #071023 0%, #061322 42%, #04121a 100%);
+  --header-bg: rgba(6,12,24,0.6);
+  --panel-bg: #081426;
+  --input-bg: #0b1b2a;
+  --text-primary: #E6F0FF;
+  --text-muted: #8D9BB2;
+  --border: rgba(255,255,255,0.04);
+  --accent: #2F6FED;
+  --accent-2: #3B82F6;
+  --text-on-accent: #071218;
+  --success: #35b76a;
+  --on-success: #062118;
+  --danger: #FF7B7B;
+  --toast-text: #F5F9FF;
+  --intro-morning: linear-gradient(135deg,#A7ECFB 0%, #FFE29A 100%);
+  --intro-afternoon: linear-gradient(135deg,#FFD194 0%, #FFB199 100%);
+  --intro-evening: linear-gradient(135deg,#0f1724 0%, #2b1642 100%);
+  --seat-available: #121A2E;
+  --seat-taken: #232B3D;
+  --panel-overlay: rgba(255,255,255,0.06);
+}
+
 .sb-select { appearance: none; -webkit-appearance: none; }
 .sb-btn { transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
 .sb-btn:active { transform: scale(0.97); }
 .sb-row { transition: background .15s ease, border-color .15s ease; }
-.sb-row:hover { background: rgba(255,176,32,0.06); border-color: rgba(255,176,32,0.35); }
+.sb-row:hover { background: rgba(47,111,237,0.06); border-color: rgba(47,111,237,0.35); }
 .sb-seat { transition: transform .1s ease, background .15s ease, border-color .15s ease; }
 .sb-seat:hover:not(:disabled) { transform: translateY(-2px); }
 .sb-board-scroll { overflow-x: auto; }
@@ -20,26 +69,155 @@ body {
 .sb-ticket { display: flex; }
 .sb-ticket-stub { width: 190px; }
 
-::selection { background: #FFB020; color: #0A0F1C; }
+::selection { background: var(--accent); color: var(--text-on-accent); }
+
+@keyframes sb-toast-in {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sb-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: sb-fade-in .6s ease both; }
+
+.card-hover { transition: transform .22s ease, box-shadow .22s ease; }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(2,6,23,0.12); }
+
+.sb-hero .sb-btn:hover { transform: translateY(-2px); }
+
+.primary-hover:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(47,111,237,0.18); }
+
+/* Touch-friendly horizontal snap sliders */
+.snap-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.snap-container > * {
+  scroll-snap-align: start;
+}
+
+/* Section entrance stagger */
+.section-animate { opacity: 0; transform: translateY(10px); animation: sb-fade-in .6s ease forwards; }
+.section-animate[data-idx="0"] { animation-delay: 0s; }
+.section-animate[data-idx="1"] { animation-delay: .08s; }
+.section-animate[data-idx="2"] { animation-delay: .16s; }
+.section-animate[data-idx="3"] { animation-delay: .24s; }
+.section-animate[data-idx="4"] { animation-delay: .32s; }
+
+/* Larger clickable arrow buttons on touch */
+.slider-arrow { width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:999px; }
+
+@media (max-width: 768px) {
+  .sb-hero {
+    padding: 24px 16px 0 !important;
+  }
+
+  .sb-section {
+    padding: 10px 16px 0 !important;
+  }
+}
 
 @media (max-width: 640px) {
   .sb-header {
     flex-wrap: wrap;
     gap: 12px;
-    padding: 18px 20px;
+    padding: 16px 20px;
+  }
+
+  .sb-board-col-header {
+    display: none !important;
   }
 
   .sb-board-inner {
-    min-width: 620px;
+    min-width: 0 !important;
   }
 
+  .sb-flight-row {
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    padding: 16px !important;
+  }
+
+  .sb-flight-code {
+    width: auto !important;
+    font-size: 15px !important;
+  }
+
+  .sb-flight-airline {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    text-align: right;
+  }
+
+  .sb-flight-time {
+    width: 100% !important;
+    font-size: 15px !important;
+    margin-top: 2px;
+  }
+
+  .sb-flight-gate {
+    width: auto !important;
+  }
+
+  .sb-flight-price {
+    width: auto !important;
+    align-items: flex-start !important;
+    margin-top: 6px;
+    flex: 1 1 auto !important;
+  }
+
+  .sb-flight-action {
+    width: auto !important;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 600px) {
   .sb-ticket {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .sb-ticket-stub {
-    width: 100%;
-    border-left: none;
-    border-top: 1px dashed rgba(255,255,255,0.15);
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px dashed rgba(16,33,58,0.12) !important;
+  }
+
+  .sb-ticket-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sb-seat-panel {
+    padding: 16px 10px !important;
+  }
+
+  .sb-summary-bar {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+    text-align: center;
+  }
+
+  .sb-summary-bar button {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sb-field-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .sb-swap-btn {
+    align-self: center !important;
+    transform: rotate(90deg);
   }
 }
