@@ -1,13 +1,16 @@
 import React from 'react';
+import { Plane } from 'lucide-react';
 import { styles } from './shared/styles';
 
 export const Footer = () => {
   return (
-    <footer style={{ marginTop: 40, padding: '36px 28px', background: 'var(--panel-bg)', borderTop: '1px solid var(--border)' }}>
-      <div style={{ maxWidth: 980, margin: '0 auto', display: 'flex', gap: 24, alignItems: 'flex-start', justifyContent: 'space-between', color: 'var(--text-primary)' }}>
+    <footer style={{ marginTop: 56, padding: '40px 20px', background: 'var(--panel-bg)', borderTop: '1px solid var(--border)' }}>
+      <div style={{ maxWidth: 1180, margin: '0 auto', display: 'flex', gap: 24, alignItems: 'flex-start', justifyContent: 'space-between', color: 'var(--text-primary)' }}>
         <div style={{ maxWidth: 320 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>SH</div>
+            <div style={{ width: 34, height: 34, borderRadius: 10, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Plane size={16} color="var(--text-on-accent)" />
+            </div>
             <div style={{ fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif", fontSize: 16 }}>SkyHop</div>
           </div>
           <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>Đặt vé máy bay nhanh chóng, giá tốt và hỗ trợ tận tâm.</div>
